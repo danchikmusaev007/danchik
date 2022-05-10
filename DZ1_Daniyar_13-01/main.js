@@ -1,83 +1,25 @@
-// // let string = prompt('your name');
-// let string = '121212232323'
-//
-// // let regularExp = /y/gi;
-// let regularExp = /\d/;
-//
-// // const regularExp2 = new  RegExp('y', )
-//
-// console.log(string.match(regularExp));
-// const phoneInput = document.querySelector('.phoneInput');
-// const phoneClick = document.querySelector('.phoneClick');
-// const phoneResult = document.querySelector('.phoneResult');
-// console.log(phoneInput);
-// const phoneReg = /^\+996 \d{3} \d{2}-\d{2}-\d{2}$/;
-//
-// phoneClick.addEventListener('click', () => {
-//   if(phoneReg.test(phoneInput.value)){
-//       phoneResult.innerText = "ok";
-//       phoneResult.style.color = "green"
-//   }else  {
-//       phoneResult.innerText = "ok";
-//       phoneResult.style.color = "red"
-//   }
-// });
-
-// const letter = "123123123123123"
-//
-// const regExp = /\w/g;
-//
-// console.log(letter)
-// console.log(letter.replace(regExp, "*"))
-
-
-// let num = 0;
-//
-// const count = () => {
-//     num++;
-//     console.log(num);
-//     if (num < 50) {
-//         return count();
-//     }
-// };
-//
-// count();
-
-const people = {
-  John: {
-    age: 25,
-    parents: {
-      Kelly: {
-        age: 45,
-      },
-      Tony: {
-        age: 45,
-      },
-    },
-  },
-  Sam: {
-    age: 15,
-    parents: {
-      Jean: {
-        age: 35,
-      },
-         Kelly: {
-        age: 45,
-      },
-      Tony: {
-        age: 45,
-      },
-    },
-  },
-};
-
-const parentsList = (obj) => {
-    if (obj.parents) {
-        for (let key in obj.parents) {
-            console.log(key);
-            parentsList(obj.parents[key]);
-        }
+const Result = document.querySelector(".result");
+const Input = document.querySelector(".input");
+const Button = document.querySelector(".cry");
+const Reg = /^1\d{13}|2\d{13}$/;
+Button.addEventListener("click", () => {
+	if(Reg.test(Input.value)){
+		console.log("hello")
+		alert("Hello")
+	}else{
+		console.log("you_know")
+		alert("you_know")
+	}
+});
+const form = document.querySelector(".circle")
+let num = 0;
+const move = function() {
+    num += 20
+    form.style.left = `${num}px`;
+    if (num < 160) {
+        move();
+    } else {
+        num = 0
     }
 }
-
-parentsList(people.Sam);
+form.addEventListener("mousedown", move)
